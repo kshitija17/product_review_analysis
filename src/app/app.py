@@ -42,6 +42,29 @@ def predict_api():
 
     return jsonify(str(prediction[0]))
 
+@app.route('/predict',methods=['POST'])
+def predict():
+    data = [x for x in request.form.values()]
+    # print("this is data:",data)
+
+    # convert input data in dataframe
+    df = pd.DataFrame(np.array(data).reshape(1,-1))
+
+    #preprocess data
+    preprocess = PreProcess(df[0])
+    clean_df = preprocess.input_preprocess()
+
+    # Vectorize data
+    vectorizer = pickle.load(open('../../pickle_files/vectorizer.pkl','rb'))
+    transform_df = vectorizer.transform(clean_df)
+
+    # prediction
+    model = pickle.load(open('../../pickle_files/reg_model.pkl','rb'))
+    prediction = model.predict(transform_df)
+
+    return render_template("index.html", prediction_output="The review is {}".format(prediction[0]))
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)  
