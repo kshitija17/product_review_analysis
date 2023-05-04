@@ -25,8 +25,9 @@ class Predict:
 
         # preprocess input data
         preprocess = PreProcess(df[0])
+        # preprocess = pickle.load(open('../../pickle_files/preprocess.pkl','rb'))
         clean_df = preprocess.input_preprocess()
-        print(clean_df[0])
+        # print(clean_df[0])
 
         # Vectorize data
         vectorizer = pickle.load(open('../../pickle_files/vectorizer.pkl','rb'))
@@ -42,7 +43,7 @@ class Predict:
 
 def predict_main():
 
-    review = "loved it"
+    review = "I loved this product"
     print(np.array(review).reshape(1,-1))
     predict = Predict(np.array(review).reshape(1,-1))
     
