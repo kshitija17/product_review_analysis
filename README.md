@@ -11,9 +11,10 @@ Sentiment analysis involves several stages, which encompass collecting data, pre
 ## Project Phases
 1. The reviews were scrapped from Amazon.in from renowned cosmetics brands using a tool called DataMiner which is a free web scraping tool.
 2. Data preprocessing was the pivotal stage in the project. Data preprocessing was performed using Pandas and NLTK, involving the elimination of stopwords, punctuations, HTML tags, URLs, whitespaces, duplicate words, frequent words, rare words, and numbers from the data. Furthermore, tokenization and lemmatization techniques were applied.
-3. Before being written in an object-oriented programming format, all model building and testing were conducted in Colab Laboratory.The various machine learning models classified the reviews into positive, neutral, and negative classes. 
-4. The complete application was created by utilizing Flask for the backend, enabling the development of a REST API, and React for the front end.
-5. The project was containerized using Docker, and subsequently deployed on an Amazon EC2 server.
+3. The data suffered from an imbalance where positive reviews were predominant. To address this issue, oversampling techniques were employed to equalize the distribution of data.
+4. Before being written in an object-oriented programming format, all model building and testing were conducted in Colab Laboratory.The various machine learning models classified the reviews into positive, neutral, and negative classes. 
+5. The complete application was created by utilizing Flask for the backend, enabling the development of a REST API, and React for the front end.
+6. The project was containerized using Docker, and subsequently deployed on an Amazon EC2 server.
 
 
 ## Software and Tool requirements
