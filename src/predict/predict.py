@@ -6,15 +6,16 @@ import numpy as np
 import sys
 import pickle
 
-sys.path.append('../')
-from dataloader.preprocess import PreProcess
+# sys.path.append('../')
+# from dataloader.preprocess import PreProcess
+from .dataloader import preprocess.PreProcess
 
 
 class Predict:
     def __init__(self,input_review):
         self.input_review = input_review
 
-    def __call__(self):
+    def __call__(self,model_name):
 
         # convert input strinf in pandas dataframe
         # df = pd.read_csv(pd.compat.StringIO(+"review\n"+input_review))
@@ -32,8 +33,14 @@ class Predict:
         # Vectorize data
         vectorizer = pickle.load(open('../../pickle_files/vectorizer.pkl','rb'))
         transform_df = vectorizer.transform(clean_df) 
+        
+        if model_name=='log_reg':
+            model = pickle.load(open('../../pickle_files/reg_model.pkl','rb'))
 
-        model = pickle.load(open('../../pickle_files/reg_model.pkl','rb'))
+        if model_name=='svm':
+            model = pickle.load(open('../../pickle_files/svm.pkl','rb'))
+
+
         prediction = model.predict(transform_df)
 
         return prediction

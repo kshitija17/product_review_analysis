@@ -8,7 +8,7 @@ class DataLoader:
     
     def __call__(self,datapath):
         self.datapath = datapath
-        self.df = pd.read_csv('../data/dataset.csv')
+        self.df = pd.read_csv('./data/dataset.csv')
     
         return self.df
 

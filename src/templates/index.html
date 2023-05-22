@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+
+<body class="bg-zinc-900">
+
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<div class="isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32" style="background-image: url(bg-image.jpg);">
+    <div class="flex justify-center mx-auto max-w-7xl px-6 lg:px-8">        
+      <div class=" mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none  g:grid-cols-2">
+        <div class=" max-w-xl lg:max-w-lg bg-gray-800 rounded-md  p-4">
+          <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Performing sentiment analysis on customer reviews of natural beauty products</h2>
+          
+          <div class="mt-6 flex max-w-md gap-x-4">
+            <form action="{{ url_for('predict')}}"method="post">
+              <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-5 ">Write a review</label>
+            <input id="email-address" type="text" name="review" required="required" required class="min-w-0 flex-auto rounded-md border-0 bg-gray-700 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10  sm:text-sm sm:leading-6" placeholder="Enter product review">
+              
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-5">Select Algorithm</label>
+
+            <select name="algorithm" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="required">
+
+              
+              <option value="log-reg" selected>Logistic Regression</option>
+              <option value="svm">SVM</option>
+              <option value="decision-tree">Decision Tree</option>
+              <option value="random-forest">Random Forest</option>
+            </select>
+           
+            <button type="submit" class="flex-none rounded-md bg-cyan-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 mt-8">Analyze</button>
+          </form>
+          </div>
+          <p class="mt-4 text-lg leading-8 text-gray-300 mt-7 text-red-600"> {{prediction_output}} </p>
+        </div>
+    </div>
+   </div>
+</div>
+
+  
+
+
+
+
+
+<!--This is my code-->
+<!-- 
+ <div class="login">
+	<h1>product review Analysis</h1> -->
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <!-- <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="review" placeholder="review" /><br>       
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Analyze</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_output}} -->
+
+</body>
+</html>

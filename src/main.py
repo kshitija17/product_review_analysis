@@ -1,8 +1,8 @@
 import numpy as numpy
-from dataloader.dataloader import DataLoader
-from dataloader.preprocess import PreProcess
-from dataloader.labeldata import LabelData
-from model.model import Model
+from .dataloader.dataloader import DataLoader
+from .dataloader.preprocess import PreProcess
+from .dataloader.labeldata import LabelData
+from .model.model import Model
 import pickle
 
 import matplotlib.pyplot as plt
@@ -30,14 +30,23 @@ def run():
 
     # train
     model = Model(labelled_df)
-    y_test,y_pred = model()
-    # print("y_test",y_test.shape)
-    # print("y_pred",y_pred.shape)
-    plt.scatter(y_test,y_pred)
-    plt.show()
-    z=y_test-y_pred
-    # print(z)
+    model()
 
+    # logistic regression
+    y_test,y_pred = model.log_reg()
+
+    # plt.scatter(y_test,y_pred)
+    # plt.show()
+
+    # svm
+    y_test,y_pred = model.svm()
+
+
+    # decision tree
+    y_test,y_pred = model.decision_tree()
+
+    # random forest
+    y_test,y_pred = model.random_forest()
 
 
 
