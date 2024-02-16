@@ -1,5 +1,5 @@
 
-# Analyzing User reviews on Natural Skincare Products through Sentiment Analysis
+# Analyzing Natural Skincare Product Reviews via Sentiment Analysis
 
 This project focuses on conducting sentiment analysis on product reviews from natural skincare brands. The objective is to offer valuable insights into customer opinions, attitudes, and preferences, enabling businesses to gain a deeper understanding of how customers perceive natural products.
 
